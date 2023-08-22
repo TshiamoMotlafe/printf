@@ -16,6 +16,6 @@ int _printf(const char *format, ...);
  * @strinP: Collects a string pointer
  * Return: The number of string printed
  */
-int _strinlen(char *strinP)
+int strinlen(char *s);
 
 #endif /* MAIN_H */

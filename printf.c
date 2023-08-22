@@ -1,5 +1,6 @@
 #include <stdarg.h>
 #include <unistd.h>
+#include "main.h"
 int _printf(const char *format, ...);
 /**
  * _printf - Prints formatted output to stdout
@@ -19,11 +20,11 @@ int _printf(const char *format, ...)
 
 	if (format == NULL)
 		return (-1);
-	for (m = 0; format[m] != '\0'; m++)
+	for (m = 0; format && format[m] != '\0'; m++)
 	{
-		if (format[m] == '%')
+		if (format[m] != '%')
 		{
-		write(1, format, 1);
+		write(1, &format[m], 1);
 		counter++;
 		}
 		else
@@ -34,7 +35,7 @@ int _printf(const char *format, ...)
 			if (format[m] == 'c')
 			{
 			chare = va_arg(lis, int);
-			write(1, format, 1);
+			write(1, &chare, 1);
 			counter++;
 			}
 			else if (format[m] == 's')
@@ -42,20 +43,18 @@ int _printf(const char *format, ...)
 			strin = va_arg(lis, char *);
 				write(1, format, 1);
 				if (strin == NULL)
-					strin = "NULL";
-				dist = _strinlen(strin);
-				write(1, format, 1);
+					strin = "(null)";
+				dist = strinlen(strin);
+				write(1, strin, 1);
 				counter += dist;
 			}
 			else if (format[m] == '%')
 			{
-				write(1, format, 1);
+				write(1, &format[m], 1);
 				counter++;
 			}
 		}
 	}
 	va_end(lis);
 	return (counter);
-
-
 }
