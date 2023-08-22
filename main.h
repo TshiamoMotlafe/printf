@@ -17,6 +17,6 @@ int _printf(const char *format, ...);
  * @args: The variable arguments list
  * Return: The number of charecters printed
  */
-int get_speci(const char *format,va_list args);
+char get_speci(const char *format,va_list args);
 
 #endif /* MAIN_H */
