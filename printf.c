@@ -51,6 +51,7 @@ int _printf(const char *format, ...)
 			{
 				write(1, &format[m], 1);
 				counter++;
+			}
 		}
 	}
 	va_end(lis);
