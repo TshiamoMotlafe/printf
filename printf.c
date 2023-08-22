@@ -53,7 +53,7 @@ int _printf(const char *format, ...)
 {
 	va_list lis;
 
-	int m, dist, counter;
+	int m, dist, counter = 0;
 
 	char chare, *strin;
 
@@ -95,6 +95,21 @@ int _printf(const char *format, ...)
 				write(1, &format[m], 1);
 				counter++;
 			}
+			else if (format[m] == 'd' || format[m] == 'i')
+			{
+				number = va_arg(lis, int);
+
+				char numStr[20];
+
+				sprintf(numStr, "%d", number);
+				dist = strinlen(numStr);
+				write(1, numStr, dist);
+				counter += dist;
+			}
+			else if (format[m] == '%')
+			{
+				write(1, &format[m], 1);
+				counter++;
 		}
 	}
 	va_end(lis);

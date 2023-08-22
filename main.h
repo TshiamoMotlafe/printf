@@ -1,8 +1,6 @@
 #ifndef MAIN_H
 #define MAIN_H
 
-#include<stdarg.h>
-
 /**
  * _printf - Prints formatted output to stdout
  * @format: The format string
