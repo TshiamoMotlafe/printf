@@ -7,16 +7,15 @@
  * _printf - Prints formatted output to stdout
  * @format: The format string
  * @...: Variable number of arguments
- * Return: The number of characters orinted 
+ * Return: The number of characters orinted
  */
 int _printf(const char *format, ...);
 
 /**
- * get_speci - Handles conversin specifiers for printf
- * @format:  The format string
- * @args: The variable arguments list
- * Return: The number of charecters printed
+ * _strinlen - Checks the length of a string
+ * @strinP: Collects a string pointer
+ * Return: The number of string printed
  */
-char get_speci(const char *format,va_list args);
+int _strinlen(char *strinP)
 
 #endif /* MAIN_H */

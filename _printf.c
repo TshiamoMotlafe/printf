@@ -1,49 +1,61 @@
 #include <stdarg.h>
 #include <unistd.h>
-
+int _printf(const char *format, ...);
+/**
+ * _printf - Prints formatted output to stdout
+ * @format: The format string
+ * @...: Variable number of arguments
+ * Return: The number of characters printed
+ */
 int _printf(const char *format, ...)
 {
-	va_list args;
+	va_list lis;
 
-	va_start(args, format);
+	int m, dist, counter;
 
-	int char_count = 0;
+	char chare, *strin;
 
-	while (*format != '\0')
+	va_start(lis, format);
+
+	if (format == NULL)
+		return (-1);
+	for (m = 0; format[m] != '\0'; m++)
 	{
-		if (*format == ' % ')
+		if (format[m] == '%')
 		{
-			format++;  /*Move past '%*/'
-			if (*format == '\0')  /*Handle edge case of ' % ' at end of format*/
-				break;
-
-			/* Handle conversion specifiers*/
-			if (*format == 'c')
-			{
-				char c = (char)va_arg(args, int);
-				write(1, &c, 1);
-				char_count++;
-			} else if (*format == 's')
-				{
-				const char *s = va_arg(args, const char *);
-				while (*s != '\0')
-				{
-					write(1, s, 1);
-					s++;
-					char_count++;
-					}
-			} else if (*format == ' % ') {
-				write(1, "%", 1);
-				char_count++;
-				}
-		 else {
-				write(1, format, 1);
-				char_count++;
+		write(1, format, 1);
+		counter++;
 		}
-
-		format++;
+		else
+		{
+			m++;
+			if (format[m] == '\0')
+			return (-1);
+			if (format[m] == 'c')
+			{
+			chare = va_arg(lis, int);
+			write(1, format, 1);
+			counter++;
+			}
+			else if (format[m] == 's')
+			{
+			strin = va_arg(lis, char *);
+				write(1, format, 1);
+				if (strin == NULL)
+					strin = "NULL";
+				dist = _strinlen(strin);
+				write(1, format, 1);
+				counter += dist;
+			}
+			else if (format[m] == '%')
+			{
+				write(1, format, 1);
+				counter++;
+			}
+		}
 	}
+	va_end(lis);
+	return (counter);
 
-	va_end(args);
-	return char_count;
-}
+
+
