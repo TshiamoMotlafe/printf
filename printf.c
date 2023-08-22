@@ -16,10 +16,9 @@ int _printf(const char *format, ...)
 
 	char chare, *strin;
 
-	va_start(lis, format);
-
 	if (format == NULL)
 		return (-1);
+	va_start(lis, format);
 	for (m = 0; format && format[m] != '\0'; m++)
 	{
 		if (format[m] != '%')
@@ -41,6 +40,7 @@ int _printf(const char *format, ...)
 			else if (format[m] == 's')
 			{
 			strin = va_arg(lis, char *);
+			write(1, &format[m], 1);
 				if (strin == NULL)
 					strin = "(null)";
 				dist = strinlen(strin);
