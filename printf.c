@@ -90,21 +90,6 @@ int _printf(const char *format, ...)
 			{
 				number = va_arg(lis, int);
 				counter += handle_int(number);
-			else if (format[m] == '%')
-			{
-				write(1, &format[m], 1);
-				counter++;
-			}
-			else if (format[m] == 'd' || format[m] == 'i')
-			{
-				number = va_arg(lis, int);
-
-				char numStr[20];
-
-				sprintf(numStr, "%d", number);
-				dist = strinlen(numStr);
-				write(1, numStr, dist);
-				counter += dist;
 			}
 			else if (format[m] == '%')
 			{
