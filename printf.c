@@ -1,46 +1,6 @@
 #include <stdarg.h>
 #include <unistd.h>
 #include "main.h"
-/**
- * handle_int - Handles the printing of  an integer to the stsout
- * @number: The integer to be printed
- *
- * Return: The total number of charecters printed
- */
-int handle_int(int number)
-{
-	int extra = 0, counter = 0;
-
-	char dig;
-
-	if (number < 0)
-	{
-		write(1, " -", 1);
-		number = -number;
-		counter++;
-	}
-	if (number == 0)
-	{
-		write(1, "0", 1);
-		counter++;
-	} else
-	{
-		extra = 0;
-		while (number > 0)
-		{
-			extra = (extra * 10) + number % 10;
-			num /= 10;
-		}
-		while (extra > 0)
-		{
-			dig = '0' + extra % 10;
-			write(1, &dig, 1);
-			extra /= 10;
-			counter++;
-		}
-	}
-	return (counter);
-}
 
 int _printf(const char *format, ...);
 /**
@@ -86,10 +46,6 @@ int _printf(const char *format, ...)
 				dist = strinlen(strin);
 				write(1, strin, dist);
 				counter += dist;
-			} else if (format[m] == 'd' || format[m] == 'i')
-			{
-				number = va_arg(lis, int);
-				counter += handle_int(number);
 			}
 			else if (format[m] == '%')
 			{
