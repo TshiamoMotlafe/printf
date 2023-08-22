@@ -44,7 +44,7 @@ int _printf(const char *format, ...)
 				if (strin == NULL)
 					strin = "(null)";
 				dist = strinlen(strin);
-				write(1, strin, dist);
+				write(1, strin, 1);
 				counter += dist;
 			}
 			else if (format[m] == '%')
