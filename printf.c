@@ -12,7 +12,7 @@ int _printf(const char *format, ...)
 {
 	va_list lis;
 
-	int m, dist, counter;
+	int m, dist, counter = 0;
 
 	char chare, *strin;
 
