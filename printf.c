@@ -40,11 +40,10 @@ int _printf(const char *format, ...)
 			else if (format[m] == 's')
 			{
 			strin = va_arg(lis, char *);
-			write(1, format, 1);
 				if (strin == NULL)
 					strin = "(null)";
 				dist = strinlen(strin);
-				write(1, strin, 1);
+				write(1, strin, dist);
 				counter += dist;
 			}
 			else if (format[m] == '%')
