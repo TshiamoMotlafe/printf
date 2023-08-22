@@ -54,7 +54,9 @@ int _printf(const char *format, ...)
 			else if (format[m] == 'd' || format[m] == 'i')
 			{
 				number = va_arg(lis, int);
+
 				char numStr[20];
+
 				sprintf(numStr, "%d", number);
 				dist = strinlen(numStr);
 				write(1, numStr, dist);
