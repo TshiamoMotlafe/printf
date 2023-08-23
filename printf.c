@@ -43,7 +43,7 @@ int _printf(const char *format, ...)
 			strin = va_arg(lis, char *);
 				if (strin == NULL)
 					strin = "(null)";
-				dist = strlen(strin); /*corrected function name from ' strinlen ' to ' strlen '*/
+				dist = strinlen(strin);
 				write(1, strin, dist);
 				counter += dist;
 			}

@@ -9,5 +9,12 @@
  */
 int _printf(const char *format, ...);
 
+/**
+ * strinlen - Checks the length of a string
+ * @s: Collects a string pointer
+ * Return: The number of string printed
+ */
+int strinlen(char *s);
+
 
 #endif /* MAIN_H */
