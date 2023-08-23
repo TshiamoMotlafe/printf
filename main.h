@@ -16,5 +16,17 @@ int _printf(const char *format, ...);
  */
 int strinlen(char *s);
 
+/**
+ * numlen - Calculates the number of digits in an integer
+ * @n: The integer to count digits for
+ * Return: The number of digits in n
+ */
+int numlen(int n);
+
+/**
+ * print_number - Prints an integer to stdout
+ * @n: The integer to be printed
+ */
+void print_number(int n);
 
 #endif /* MAIN_H */
