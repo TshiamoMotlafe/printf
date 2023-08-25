@@ -51,7 +51,7 @@ int _printf(const char *format, ...)
 				dist = strinlen(strin);
 				write(1, strin, dist);
 				counter += dist;
-	}
+			}
 			else if (format[m] == '%')
 			{
 				write(1, &format[m], 1);
