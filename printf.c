@@ -44,7 +44,7 @@ int _printf(const char *format, ...)
 				strin = va_arg(lis, char *);
 				if (strin == NULL)
 					strin = "(null)";
-				dist = strinlen(strin);
+				dist = strlen(strin);
 				write(1, strin, dist);
 				counter += dist;
 			}
