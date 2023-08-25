@@ -17,6 +17,14 @@ int _printf(const char *format, ...);
 int strinlen(char *s);
 
 /**
+ * int_handle - Prints formatted output to stdout
+ * @format: The format string
+ * @..: Variable nuber of arguments.
+ * Return: The number of charecters printed 
+ */
+int int_Handle(const char *format, ..);
+
+/**
  * numlen - Calculates the number of digits in an integer
  * @n: The integer to count digits for
  * Return: The number of digits in n
