@@ -3,7 +3,7 @@
 #include <unistd.h>
 #include "main.h"
 
-int int_Handle(const char *format, ...);
+
 int _printf(const char *format, ...);
 
 /**
@@ -16,7 +16,7 @@ int _printf(const char *format, ...)
 {
 	va_list lis;
 
-	int m, num, dist, counter = 0;
+	int m, dist, counter = 0;
 
 	char chare, *strin;
 
@@ -51,12 +51,7 @@ int _printf(const char *format, ...)
 				dist = strinlen(strin);
 				write(1, strin, dist);
 				counter += dist;
-			}
-			else if (format[m] == 'd' || format[m] == 'i')
-			{
-				num = va_arg(lis, int);
-				counter += int_Handle(format + m, num);
-				m++;
+	}
 			else if (format[m] == '%')
 			{
 				write(1, &format[m], 1);
