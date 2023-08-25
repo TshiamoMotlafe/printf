@@ -1,4 +1,5 @@
 #include <stdarg.h>
+#include<string.h>
 #include <unistd.h>
 #include "main.h"
 
@@ -44,7 +45,7 @@ int _printf(const char *format, ...)
 				strin = va_arg(lis, char *);
 				if (strin == NULL)
 					strin = "(null)";
-				dist = strlen(strin);
+				dist = strinlen(strin);
 				write(1, strin, dist);
 				counter += dist;
 			}
